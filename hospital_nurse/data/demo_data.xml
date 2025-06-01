@@ -1,0 +1,8 @@
+<odoo>
+  <record id="nurse_marie" model="hospital.nurse">
+    <field name="name">Marie Curie</field>
+  </record>
+  <record id="nurse_jules" model="hospital.nurse">
+    <field name="name">Jules Verne</field>
+  </record>
+</odoo>

@@ -1,0 +1,5 @@
+<odoo>
+  <record id="group_hospital_user" model="res.groups">
+    <field name="name">Hospital User</field>
+  </record>
+</odoo>

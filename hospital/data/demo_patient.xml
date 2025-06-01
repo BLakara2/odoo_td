@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hospital_patient_demo_1" model="hospital.patient">
+        <field name="name">Jean Dupont</field>
+        <field name="age">35</field>
+        <field name="gender">male</field>
+        <field name="state">treatment</field>
+    </record>
+
+    <record id="hospital_patient_demo_2" model="hospital.patient">
+        <field name="name">Sophie Martin</field>
+        <field name="age">28</field>
+        <field name="gender">female</field>
+        <field name="state">new</field>
+    </record>
+</odoo>

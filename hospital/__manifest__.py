@@ -1,0 +1,20 @@
+{
+    'name': 'Hospital Management',
+    'version': '1.0',
+    'category': 'hospital',
+    'description': 'module pour la gestion d\'un hopital',
+    'summary': 'Gestion des patients pour un hôpital',
+    'author': 'Lakara',
+    'depends': ['base'],
+    'data': [
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        'views/hospital_views.xml',
+        'views/menu_views.xml',
+        'data/demo_patient.xml',
+    ],
+    'application': True,
+    'auto_install': False,
+    'installable': True,
+    'license': 'LGPL-3',
+}

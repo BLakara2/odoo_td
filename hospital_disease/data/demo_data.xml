@@ -1,0 +1,17 @@
+<odoo>
+  <record id="disease_cold" model="hospital.disease">
+    <field name="name">Common Cold</field>
+    <field name="symptoms">Sneezing, runny nose, sore throat</field>
+    <field name="severity">low</field>
+    <field name="final_action">go_home</field>
+    <field name="requires_medication">False</field>
+  </record>
+
+  <record id="disease_flu" model="hospital.disease">
+    <field name="name">Flu</field>
+    <field name="symptoms">Fever, cough, body ache</field>
+    <field name="severity">medium</field>
+    <field name="final_action">consult_doctor</field>
+    <field name="requires_medication">True</field>
+  </record>
+</odoo>

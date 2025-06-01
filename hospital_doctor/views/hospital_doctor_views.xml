@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Vues et actions maladies -->
+  <record id="view_hospital_disease_tree" model="ir.ui.view">
+    <field name="name">hospital.disease.tree</field>
+    <field name="model">hospital.disease</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="severity"/>
+        <field name="final_action"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_hospital_disease_form" model="ir.ui.view">
+    <field name="name">hospital.disease.form</field>
+    <field name="model">hospital.disease</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="symptoms"/>
+            <field name="severity"/>
+            <field name="final_action"/>
+            <field name="requires_medication"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_hospital_disease" model="ir.actions.act_window">
+    <field name="name">Maladies</field>
+    <field name="res_model">hospital.disease</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_hospital_disease_root" name="Maladies" parent="hospital.hospital_root_menu_lakara"/>
+  <menuitem id="menu_hospital_disease" name="Maladies" parent="menu_hospital_disease_root" action="action_hospital_disease"/>
+
+  <!-- Vues et actions doctors -->
+  <record id="view_doctor_tree" model="ir.ui.view">
+    <field name="name">hospital_doctor.doctor.tree</field>
+    <field name="model">hospital_doctor.doctor</field>
+    <field name="arch" type="xml">
+      <tree string="Doctors">
+        <field name="name"/>
+        <field name="specialization"/>
+        <field name="phone"/>
+        <field name="email"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_doctor_form" model="ir.ui.view">
+    <field name="name">hospital_doctor.doctor.form</field>
+    <field name="model">hospital_doctor.doctor</field>
+    <field name="arch" type="xml">
+      <form string="Doctor">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="specialization"/>
+            <field name="phone"/>
+            <field name="email"/>
+          </group>
+          <notebook>
+            <page string="Patients">
+              <field name="patient_ids">
+                <tree>
+                  <field name="name"/>
+                  <field name="state"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_doctor" model="ir.actions.act_window">
+    <field name="name">Doctors</field>
+    <field name="res_model">hospital_doctor.doctor</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_hospital_doctor_root" name="Doctors" parent="hospital.hospital_root_menu_lakara"/>
+  <menuitem id="menu_hospital_doctor" name="Doctors" parent="menu_hospital_doctor_root" action="action_doctor" sequence="10"/>
+</odoo>

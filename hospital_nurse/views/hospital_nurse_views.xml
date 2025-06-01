@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Vues pour hospital.disease -->
+  <record id="view_hospital_disease_tree" model="ir.ui.view">
+    <field name="name">hospital.disease.tree</field>
+    <field name="model">hospital.disease</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="severity"/>
+        <field name="final_action"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_hospital_disease_form" model="ir.ui.view">
+    <field name="name">hospital.disease.form</field>
+    <field name="model">hospital.disease</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="symptoms"/>
+            <field name="severity"/>
+            <field name="final_action"/>
+            <field name="requires_medication"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_hospital_disease" model="ir.actions.act_window">
+    <field name="name">Maladies</field>
+    <field name="res_model">hospital.disease</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Vues pour hospital.nurse -->
+  <record id="view_hospital_nurse_form" model="ir.ui.view">
+    <field name="name">hospital.nurse.form</field>
+    <field name="model">hospital.nurse</field>
+    <field name="arch" type="xml">
+      <form string="Infirmière">
+        <header>
+          <button name="print_week_rounds"
+                  string="Imprimer les rondes de la semaine"
+                  type="object"
+                  class="btn-primary"/>
+        </header>
+        <sheet>
+          <group>
+            <field name="name"/>
+          </group>
+          <notebook>
+            <page string="Rondes">
+              <field name="round_ids">
+                <tree editable="bottom">
+                  <field name="patient_id"/>
+                  <field name="date"/>
+                  <field name="description"/>
+                  <field name="done"/>
+                  <button name="action_marquer_faite" string="Marquer comme faite" type="object"/>
+                  <button name="action_liberer_patient" string="Libérer patient" type="object"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- Vues pour hospital.round -->
+  <record id="view_hospital_round_form" model="ir.ui.view">
+    <field name="name">hospital.round.form</field>
+    <field name="model">hospital.round</field>
+    <field name="arch" type="xml">
+      <form string="Ronde infirmière">
+        <sheet>
+          <group>
+            <field name="nurse_id"/>
+            <field name="patient_id"/>
+            <field name="date"/>
+            <field name="description"/>
+            <field name="done"/>
+          </group>
+          <footer>
+            <button name="action_marquer_faite" string="Marquer comme faite" type="object" class="oe_highlight"/>
+            <button name="action_liberer_patient" string="Libérer patient" type="object" class="oe_highlight"/>
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_hospital_round_tree" model="ir.ui.view">
+    <field name="name">hospital.round.tree</field>
+    <field name="model">hospital.round</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="nurse_id"/>
+        <field name="patient_id"/>
+        <field name="date"/>
+        <field name="description"/>
+        <field name="done"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Actions -->
+  <record id="action_hospital_nurse" model="ir.actions.act_window">
+    <field name="name">Infirmières</field>
+    <field name="res_model">hospital.nurse</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record id="action_hospital_round" model="ir.actions.act_window">
+    <field name="name">Rondes infirmières</field>
+    <field name="res_model">hospital.round</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <!-- Rapport PDF -->
+  <report 
+    id="action_report_week_rounds"
+    model="hospital.nurse"
+    string="Rondes de la semaine"
+    report_type="qweb-pdf"
+    name="hospital_nurse.report_ronde_semaine"
+    file="hospital_nurse.report_ronde_semaine"
+    print_report_name="'Rondes_%s' % object.name"
+  />
+
+  <!-- Menus -->
+  <menuitem id="menu_hospital_disease_root" name="Maladies" parent="hospital.hospital_root_menu_lakara"/>
+  <menuitem id="menu_hospital_nurse_root" name="Infirmières" parent="hospital.hospital_root_menu_lakara"/>
+  <menuitem id="menu_hospital_nurse" name="Infirmières" parent="menu_hospital_nurse_root" action="action_hospital_nurse"/>
+  <menuitem id="menu_hospital_round" name="Rondes" parent="menu_hospital_nurse_root" action="action_hospital_round"/>
+  <menuitem id="menu_hospital_disease" name="Maladies" parent="menu_hospital_disease_root" action="action_hospital_disease"/>
+</odoo>

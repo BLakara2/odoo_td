@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Exemple d'un docteur -->
+  <record id="doctor_1" model="hospital_doctor.doctor">
+    <field name="name">Dr. Alice Dupont</field>
+    <field name="specialization">Cardiology</field>
+    <field name="phone">+33 1 23 45 67 89</field>
+    <field name="email">alice.dupont@example.com</field>
+  </record>
+
+  <record id="doctor_2" model="hospital_doctor.doctor">
+    <field name="name">Dr. Jean Martin</field>
+    <field name="specialization">Neurology</field>
+    <field name="phone">+33 1 98 76 54 32</field>
+    <field name="email">jean.martin@example.com</field>
+  </record>
+</odoo>

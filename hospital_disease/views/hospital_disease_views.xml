@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_hospital_disease_tree" model="ir.ui.view">
+    <field name="name">hospital.disease.tree</field>
+    <field name="model">hospital.disease</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="severity"/>
+        <field name="final_action"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_hospital_disease_form" model="ir.ui.view">
+    <field name="name">hospital.disease.form</field>
+    <field name="model">hospital.disease</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="symptoms"/>
+            <field name="severity"/>
+            <field name="final_action"/>
+            <field name="requires_medication"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record> <!-- 👈 ajouté ici -->
+
+  <record id="action_hospital_disease" model="ir.actions.act_window">
+    <field name="name">Maladies</field>
+    <field name="res_model">hospital.disease</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_hospital_disease_root" name="Maladies" parent="hospital.hospital_root_menu_lakara"/>
+  <menuitem id="menu_hospital_disease" name="Maladies" parent="menu_hospital_disease_root" action="action_hospital_disease"/>
+
+</odoo>
