@@ -64,13 +64,6 @@ hospital/
 └── data/
     └── demo_patient.xml
 ```
-
----
-
-## 📸 Capture d’écran
-
-![Menu principal](screenshots/menu.png)
-
 ---
 
 ## ✍️ Auteur
