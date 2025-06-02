@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_patient_form_inherit_pharmacy" model="ir.ui.view">
+    <field name="name">hospital.patient.form.pharmacy_inherit</field>
+    <field name="model">hospital.patient</field>
+    <field name="inherit_id" ref="hospital.view_patient_form"/>
+    <field name="arch" type="xml">
+      <notebook position="inside">
+        <page string="Prescriptions & Commandes Médicaments">
+          <field name="prescription_ids" context="{'default_patient_id': active_id}">
+            <tree editable="bottom">
+              <field name="doctor_id"/>
+              <field name="pharmacy_id"/>
+              <field name="medicine_ids"/>
+              <field name="date_prescription"/>
+            </tree>
+          </field>
+          <field name="medication_order_ids" context="{'default_patient_id': active_id}">
+            <tree>
+              <field name="pharmacy_id"/>
+              <field name="doctor_id"/>
+              <field name="order_date"/>
+              <field name="state"/>
+            </tree>
+          </field>
+        </page>
+      </notebook>
+    </field>
+  </record>
+</odoo>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <menuitem id="menu_hospital_pharmacy_root" name="Gestion Médicaments" parent="hospital.hospital_root_menu" sequence="20"/>
+  <menuitem id="menu_pharmacy_prescriptions" name="Prescriptions" parent="menu_hospital_pharmacy_root" action="action_prescription"/>
+  <menuitem id="menu_medication_orders" name="Commandes Médicaments" parent="menu_hospital_pharmacy_root" action="action_medication_order"/>
+</odoo>
+

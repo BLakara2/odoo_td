@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="prescription1" model="pharmacy_hospital.prescription">
+    <field name="patient_id" ref="hospital.patient_1"/>
+    <field name="doctor_id" ref="hospital.doctor_1"/>
+    <field name="pharmacy_id" ref="pharmacy.pharmacy1"/>
+    <field name="medicine_ids" eval="[(4, ref('pharmacy.medicine1'))]"/>
+  </record>
+</odoo>

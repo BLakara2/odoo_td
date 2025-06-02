@@ -1,0 +1,22 @@
+<odoo>
+  <record id="pharmacy1" model="pharmacy.pharmacy">
+    <field name="name">Pharmacie Centrale</field>
+    <field name="address">10 Rue de la Santé</field>
+  </record>
+
+  <record id="medicine1" model="pharmacy.medicine">
+    <field name="name">Paracétamol</field>
+    <field name="price">2.5</field>
+    <field name="stock">100</field>
+    <field name="restock_delay">7</field>
+    <field name="pharmacy_id" ref="pharmacy1"/>
+  </record>
+
+  <record id="medicine2" model="pharmacy.medicine">
+    <field name="name">Ibuprofène</field>
+    <field name="price">3.0</field>
+    <field name="stock">50</field>
+    <field name="restock_delay">10</field>
+    <field name="pharmacy_id" ref="pharmacy1"/>
+  </record>
+</odoo>

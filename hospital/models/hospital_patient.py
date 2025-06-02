@@ -3,7 +3,7 @@ from odoo import models, fields
 class HospitalPatient(models.Model):
     _name = 'hospital.patient'
     _description = 'Hospital Patient'
-
+    
     name = fields.Char(string='Nom', required=True)
     age = fields.Integer(string='Âge')
     gender = fields.Selection([('male', 'Homme'), ('female', 'Femme')], string='Sexe')

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="view_medication_order_tree" model="ir.ui.view">
+    <field name="name">medication.order.tree</field>
+    <field name="model">pharmacy.medication.order</field>
+    <field name="arch" type="xml">
+      <tree string="Commandes Médicaments">
+        <field name="patient_id"/>
+        <field name="pharmacy_id"/>
+        <field name="order_date"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_medication_order_form" model="ir.ui.view">
+    <field name="name">medication.order.form</field>
+    <field name="model">pharmacy.medication.order</field>
+    <field name="arch" type="xml">
+      <form string="Commande de Médicaments">
+        <sheet>
+          <group>
+            <field name="patient_id"/>
+            <field name="pharmacy_id"/>
+            <field name="order_date"/>
+            <field name="state" readonly="0"/>
+          </group>
+          <notebook>
+            <page string="Lignes de commande">
+              <field name="order_line_ids">
+                <tree editable="bottom">
+                  <field name="medicine_id"/>
+                  <field name="quantity"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+          <footer>
+            <button name="action_confirm" type="object" string="Valider" 
+                    class="btn-primary"/>
+            <button name="action_deliver" type="object" string="Livrer" 
+                    class="btn-success"/>
+            <button name="action_cancel" type="object" string="Annuler" 
+                    class="btn-danger"/>
+            <button string="Fermer" class="btn-secondary" special="cancel"/>
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+  
+  <record id="action_medication_order" model="ir.actions.act_window">
+    <field name="name">Commandes Médicaments</field>
+    <field name="res_model">pharmacy.medication.order</field>  <!-- modèle correspondant -->
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Commande 1 -->
+    <record id="medication_order_demo_1" model="pharmacy.medication.order">
+        <field name="name">Commande #001</field>
+        <field name="patient_id" ref="hospital.hospital_patient_demo_1"/>
+        <field name="pharmacy_id" ref="pharmacy.pharmacy1"/>
+        <field name="order_date">2025-06-01</field>
+        <field name="state">draft</field>
+    </record>
+
+    <record id="medication_order_line_demo_1" model="pharmacy.medication.order.line">
+        <field name="order_id" ref="medication_order_demo_1"/>
+        <field name="medicine_id" ref="pharmacy.medicine1"/>
+        <field name="quantity">5</field>
+    </record>
+    <record id="medication_order_line_demo_2" model="pharmacy.medication.order.line">
+        <field name="order_id" ref="medication_order_demo_1"/>
+        <field name="medicine_id" ref="pharmacy.medicine2"/>
+        <field name="quantity">2</field>
+    </record>
+
+    <!-- Commande 2 -->
+    <record id="medication_order_demo_2" model="pharmacy.medication.order">
+        <field name="name">Commande #002</field>
+        <field name="patient_id" ref="hospital.hospital_patient_demo_2"/>
+        <field name="pharmacy_id" ref="pharmacy.pharmacy1"/>
+        <field name="order_date">2025-06-02</field>
+        <field name="state">draft</field>
+    </record>
+
+    <record id="medication_order_line_demo_3" model="pharmacy.medication.order.line">
+        <field name="order_id" ref="medication_order_demo_2"/>
+        <field name="medicine_id" ref="pharmacy.medicine1"/>
+        <field name="quantity">3</field>
+    </record>
+</odoo>

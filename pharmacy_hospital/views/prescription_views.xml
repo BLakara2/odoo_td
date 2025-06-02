@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- Actions -->
+  <record id="action_prescription" model="ir.actions.act_window">
+    <field name="name">Prescriptions</field>
+    <field name="res_model">pharmacy_hospital.prescription</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <record id="action_medication_order" model="ir.actions.act_window">
+    <field name="name">Commandes Médicaments</field>
+    <field name="res_model">pharmacy.medication.order</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  
+  <record id="view_prescription_form" model="ir.ui.view">
+    <field name="name">pharmacy_hospital.prescription.form</field>
+    <field name="model">pharmacy_hospital.prescription</field>
+    <field name="arch" type="xml">
+      <form string="Prescription">
+        <sheet>
+          <group>
+            <field name="patient_id"/>
+            <field name="doctor_id"/>
+            <field name="pharmacy_id"/>
+            <field name="medicine_ids" widget="many2many_tags"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_prescription_tree" model="ir.ui.view">
+    <field name="name">pharmacy_hospital.prescription.tree</field>
+    <field name="model">pharmacy_hospital.prescription</field>
+    <field name="arch" type="xml">
+      <tree string="Prescriptions">
+        <field name="patient_id"/>
+        <field name="doctor_id"/>
+        <field name="pharmacy_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Ajout dans la fiche patient -->
+  <record id="view_hospital_patient_form_inherit" model="ir.ui.view">
+    <field name="name">hospital.patient.form.pharmacy_hospital</field>
+    <field name="model">hospital.patient</field>
+    <field name="inherit_id" ref="hospital.view_patient_form"/>
+    <field name="arch" type="xml">
+      <notebook position="inside">
+        <page string="Prescriptions & Commandes">
+          <field name="prescription_ids" context="{'default_patient_id': active_id}">
+            <tree>
+              <field name="doctor_id"/>
+              <field name="pharmacy_id"/>
+              <field name="medicine_ids"/>
+            </tree>
+          </field>
+          <field name="medication_order_ids" context="{'default_pharmacy_id': active_id}">
+            <tree>
+              <field name="pharmacy_id"/>
+              <field name="order_date"/>
+              <field name="state"/>
+            </tree>
+          </field>
+        </page>
+      </notebook>
+    </field>
+  </record>
+</odoo>
