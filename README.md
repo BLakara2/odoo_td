@@ -1,6 +1,6 @@
 # 🏥 Odoo Hospital Management - TP
 
-Ce projet est un ensemble de modules Odoo personnalisés développés dans le cadre d’un TP. Il simule la gestion d’un hôpital, en exploitant le framework Odoo 17.  
+Ce projet est un ensemble de modules Odoo personnalisés développés dans le cadre d’un TP. Il simule la gestion d’un hôpital, en exploitant le framework Odoo 17.
 
 ## 📁 Modules disponibles
 
@@ -64,12 +64,13 @@ hospital/
 └── data/
     └── demo_patient.xml
 ```
+
 ---
 
 ## ✍️ Auteur
 
-- **Lakara B.**  
-TP de développement Odoo E-TECH - 2025 
+Bryan Lakara  
+TP de développement Odoo E-TECH - 2025  
 
 ---
 
